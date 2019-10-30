@@ -17,7 +17,7 @@
 			//params
 			$queryParams = $url;
 
-			$dispach = new $controller($controller_name, $action);
+			$dispatch = new $controller($controller_name, $action);
 
 			if (method_exists($controller, $action))
 			{

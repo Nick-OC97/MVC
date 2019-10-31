@@ -1,5 +1,13 @@
 <?php
 	define('DEBUG', true);
+
+	define('DB_NAME', 'mvc'); //database name
+	define('DB_USER', 'root'); //database user
+	define('DB_PASSWORD', ''); //database password
+	define('DB_HOST', 'localhost'); //database host
+
+
+
 	
 	define('DEFAULT_CONTROLLER', 'Home');
 

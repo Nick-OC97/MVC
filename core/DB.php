@@ -54,6 +54,91 @@
 			return $this;
 		}
 
+		protected function _read($table, $params = [])
+		{
+			$conditionString = '';
+			$bind = [];
+			$order  = '';
+			$limit = '';
+
+			// conditions
+			if (isset($params['conditions']))
+			{
+				if(is_array($params['conditions']))
+				{
+					foreach($params['conditions'] as $condition)
+					{
+						$conditionString .= ' ' . $condition . ' AND';
+					}
+					$conditionString = trim($conditionString);
+					$conditionString = rtrim($conditionString, ' AND');
+				}
+				else
+				{
+					$conditionString = $params['conditions'];
+				}
+				if ($conditionString != '')
+				{
+					$conditionString = ' Where ' . $conditionString;
+				}
+			}
+			// bind
+			if (array_key_exists('bind', $params))
+			{
+				$bind = $params['bind'];
+			}
+			// order
+			if (array_key_exists('order', $params))
+			{
+				$order = ' ORDER BY ' . $params['order'];
+			}
+
+			// limit
+			if (array_key_exists('limit', $params))
+			{
+				$limit = ' LIMIT ' . $params['limit'];
+			}
+
+			$sql = "SELECT * FROM {$table}{$conditions}{$order}{$limit}";
+			if($this->query($sql, $bind))
+			{
+				if (!count($this->_result))
+				{
+					return false;
+				}
+				else
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+
+		public function find($tabel, $params = [])
+		{
+			if($this->_read($table, $params))
+			{
+				return ($this->results())
+			}
+			else
+			{
+				return falsel
+			}
+		}
+
+		public function findFirst($table, $params = [])
+		{
+			if($this->_read($table, $params))
+			{
+				return ($this->first());
+			}
+			else
+			{
+				return false;
+			}
+
+		}
+
 		public function insert($table, $fields = [])
 		{
 			$fieldString = '';
@@ -122,7 +207,22 @@
 
 		public function first()
 		{
-			return $this->_result[0];
+			return (!empty($this->_result))? $this->_result[0] : [];
+		}
+
+		public function count()
+		{
+			return $this->_count;
+		}
+
+		public function lastID()
+		{
+			return $this->_lastInsertID;
+		}
+
+		public function get_columns($table)
+		{
+			return $this->query("SHOW COLUMNS FROM {$table}")->results();
 		}
 
 		public function error()

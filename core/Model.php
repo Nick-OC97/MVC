@@ -51,6 +51,30 @@
 			return $this->findFirst(['conditions' => "id = ?", 'bind' => [$id]]);
 		}
 
+		public function insert($id)
+		{
+			if (empty($fields))
+			{
+				return false;
+			}
+			else
+			{
+				return $this->_db->insert($this->_table, $fields);
+			}
+		}
+
+		public function update($id, $fields)
+		{
+			if (empty($fields) || $id == '')
+			{
+				return false;
+			}
+			else
+			{
+				return $this->_db->update($this->_table, $id, $fields);
+			}
+		}
+
 		protected function populateObjData($result)
 		{
 			foreach($result as $key => $val)

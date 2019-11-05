@@ -99,7 +99,7 @@
 				$limit = ' LIMIT ' . $params['limit'];
 			}
 
-			$sql = "SELECT * FROM {$table}{$conditions}{$order}{$limit}";
+			$sql = "SELECT * FROM {$table}{$conditionString}{$order}{$limit}";
 			if($this->query($sql, $bind))
 			{
 				if (!count($this->_result))
@@ -114,15 +114,15 @@
 			return false;
 		}
 
-		public function find($tabel, $params = [])
+		public function find($table, $params = [])
 		{
 			if($this->_read($table, $params))
 			{
-				return ($this->results())
+				return ($this->results());
 			}
 			else
 			{
-				return falsel
+				return false;
 			}
 		}
 

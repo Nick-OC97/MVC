@@ -9,13 +9,12 @@
 		public function indexAction()
 		{
 			$db = DB::getInstance();
-			$fields = [
-				'fname' => 'Toni',
-				'lname' => 'Parham',
-				'email' => 'toni@stark.com'
+/* 			$fields = [
+				'id' => '2',
 			];
-			$contactsQ = $db->insert('contacts', $fields);
-			//dnd($contactsQ);
+			$contactsQ = $db->update('contacts', 4, $fields); */
+			$contacts = $db->query("SELECT * FROM contacts ORDER BY lname, fname")->results();
+			dnd($contacts);
 			$this->view->render('home/index');
 		}
 	}

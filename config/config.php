@@ -16,3 +16,10 @@
 	define('SITE_TITLE', 'MVC Framework');
 
 	define('PROOT', '/mvc/'); //this is set to '/' for live server.
+
+	
+	
+	
+	define('CURRENT_USER_SESSION_NAME', 'jashbvnhuqAbSD');
+	define('REMEMBER_ME_COOKIE_NAME', 'uughiuhwovwsdnvvlgbrjfoshvADS');
+	define('REMEMBER_ME_COOKIE_EXPIRY', 604800);

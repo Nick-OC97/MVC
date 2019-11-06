@@ -9,15 +9,18 @@
 			$this->_db = DB::getInstance();
 			$this->_table = $table;
 			$this->_setTableColumns();
-			$this->_modelName = str_replace(' ', '', ucwords(str_repalce('_', ' ', $this->_table)));
+			$this->_modelName = str_replace(' ', '', ucwords(str_replace('_', ' ', $this->_table)));
 		}
 
 		protected function _setTableColumns()
 		{
-			$columns = $this->get_Columns();
+			$columns = $this->get_columns();
 			foreach($columns as $column)
+			{
+				$columnName = $column->Field;
 				$this->_columnNames[] = $column->Field;
-				$this->{$columnName} = NULL;
+				$this->{$columnName} = null;
+			}
 		}
 
 		public function get_columns()
@@ -42,7 +45,10 @@
 		{
 			$resultQuery = $this->_db->findFirst($this->_table, $params);
 			$result = new $this->_modelName($this->_table);
-			$result->populateObjData($resultQuery);
+			if($resultQuery)
+			{
+				$result->populateObjData($resultQuery);
+			}
 			return $result;
 		}
 
@@ -115,7 +121,7 @@
 		public function data()
 		{
 			$data = new stdClass();
-			foreach($this->columnNames as $column)
+			foreach($this->_columnNames as $column)
 			{
 				$data->column = $this->column;
 			}

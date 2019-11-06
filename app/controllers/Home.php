@@ -8,6 +8,7 @@
 
 		public function indexAction()
 		{
+			dnd($_SESSION);
 			$db = DB::getInstance();
 /* 			$fields = [
 				'fname' => 'nick',

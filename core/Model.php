@@ -51,6 +51,24 @@
 			return $this->findFirst(['conditions' => "id = ?", 'bind' => [$id]]);
 		}
 
+		public function save()
+		{
+			$fields = [];
+			foreach($this->_columnNames as $column)
+			{
+				$fields[$column] = $this->$column;
+			}
+			//update or insert
+			if (property_exists($this, 'id') && $this->id != '')
+			{
+				return $this->update($this->id, $fields);
+			}
+			else
+			{
+				return $this->insert($fields);
+			}
+		}
+
 		public function insert($id)
 		{
 			if (empty($fields))
@@ -73,6 +91,51 @@
 			{
 				return $this->_db->update($this->_table, $id, $fields);
 			}
+		}
+
+		public function delete($id)
+		{
+			if ($id == '' && $this->id == '')
+			{
+				return false;
+			}
+			$id = ($id == '')? $this->id : $id;
+			if ($this->_softDelete)
+			{
+				$this->update($id, ['deleted' => 1]);
+			}
+			return $this->_db->delete($this->_table, $id);
+		}
+
+		public function query($sql, $bind = [])
+		{
+			return $this->db->query($sql, $bind);
+		}
+
+		public function data()
+		{
+			$data = new stdClass();
+			foreach($this->columnNames as $column)
+			{
+				$data->column = $this->column;
+			}
+			return $data;
+		}
+
+		public function assign($params)
+		{
+			if (!empty($params))
+			{
+				foreach ($params as $key => $val)
+				{
+					if (in_array($key, $this->_columnNames))
+					{
+						$this->$key = sanitize($val);
+					}
+				}
+				return true;
+			}
+			return false;
 		}
 
 		protected function populateObjData($result)

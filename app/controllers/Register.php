@@ -20,7 +20,7 @@
 						'required' => true
 					],
 					'password' => [
-						'display' => "Password", //potential error
+						'display' => "Password", //potential error- fixed
 						'required' => true,
 						'min' => 6
 					]

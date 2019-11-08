@@ -12,3 +12,8 @@
 	{
 		return (htmlentities($dirty, ENT_QUOTES, 'URF-8'));
 	}
+
+	function currentUser()
+	{
+		return Users::currentLoggedInUser();
+	}

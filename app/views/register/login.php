@@ -3,6 +3,7 @@
 <?php $this->start('body'); ?>
 <div class="col-md-6 col-md-offset-3 well">
 	<form class="" action="<?=PROOT?>register/login" method="post">
+		<div><?=$this->displayErrors ?></div>   <!--not working-->
 		<h3 class="">Log In</h3>
 		<div class="">
 			<label for="username">Username</label>

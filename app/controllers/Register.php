@@ -21,7 +21,8 @@
 					],
 					'password' => [
 						'display' => "Password", //potential error
-						'required' => true
+						'required' => true,
+						'min' => 6
 					]
 				]);
 				if ($validation->passed())
@@ -33,8 +34,13 @@
 						$user->login($remember);
 						Router::redirect('');
 					}
+					else
+					{
+						$validation->addError("There is an error with your username and password.");
+					}
 				}
 			}
+			$this->view->displayErrors = $validation->displayErrors();
 			$this->view->render('register/login');
 		}
 	}

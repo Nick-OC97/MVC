@@ -43,4 +43,13 @@
 			$this->view->displayErrors = $validation->displayErrors();
 			$this->view->render('register/login');
 		}
+
+		public function logoutAction()
+		{
+			if (currentUser())
+			{
+				currentUser()->logout();
+			}
+			Router::redirect('register/login');
+		}
 	}

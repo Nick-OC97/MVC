@@ -99,7 +99,7 @@
 			}
 		}
 
-		public function delete($id)
+		public function delete($id = '')
 		{
 			if ($id == '' && $this->id == '')
 			{

@@ -189,7 +189,7 @@
 
 		public function delete($table, $id)
 		{
-			$sql = "DELETE FROM $table WHERE id = {$id}";
+			$sql = "DELETE FROM {$table} WHERE id = {$id}";
 			if (!$this->query($sql)->error())
 			{
 				return true;

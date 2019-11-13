@@ -52,4 +52,9 @@
 			}
 			Router::redirect('register/login');
 		}
+
+		public function registerAction()
+		{
+			
+		}
 	}

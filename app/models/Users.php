@@ -90,4 +90,12 @@
 			self::$currentLoggedInUser = null;
 			return true;
 		}
+
+		public function registerNewUser($params)
+		{
+			$this->assign($params);
+			$this->deleted = 0;
+			$this->password = password_hash($this->password, PASSWORD_BCRYPT);
+			$this->save();
+		}
 	}

@@ -64,7 +64,6 @@
 			{
 				$fields[$column] = $this->$column;
 			}
-			//update or insert
 			if (property_exists($this, 'id') && $this->id != '')
 			{
 				return $this->update($this->id, $fields);
@@ -75,7 +74,7 @@
 			}
 		}
 
-		public function insert($id)
+		public function insert($fields)
 		{
 			if (empty($fields))
 			{

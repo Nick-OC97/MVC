@@ -11,7 +11,7 @@
 		</div>
 		<div>
 			<label for="password">Password</label>
-			<input type="text" name="password" id="password" class="w3-input">
+			<input type="password" name="password" id="password" class="w3-input">
 		</div>
 		<div>
 			<label for="remember_me">Remember Me <input type="checkbox" id="remember_me" name="remember_me" value="on" class="w3-check w3-margin"></label>

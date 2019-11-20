@@ -84,7 +84,7 @@
 					}
 				}
 			}
-
+			//dnd($current_user_acls);
 			//check for denied
 			foreach($current_user_acls as $level)
 			{

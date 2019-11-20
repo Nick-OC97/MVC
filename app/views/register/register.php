@@ -3,7 +3,7 @@
 <?php $this->start('body'); ?>
 <div>
 	<form action="" method="post" class="w3-container">
-		<div><?= $this->displayErrors ?></div>
+		<div class="w3-text-red"><?= $this->displayErrors ?></div>
 		<h3 class="w3-container w3-blue">Register Here!</h3>
 		<div>
 			<label for="fname">First Name</label>

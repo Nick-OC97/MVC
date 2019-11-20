@@ -2,35 +2,35 @@
 <?php $this->end(); ?>
 <?php $this->start('body'); ?>
 <div>
-	<h3>Register Here!</h3><hr>
-	<form action="" method="post">
+	<form action="" method="post" class="w3-container">
 		<div><?= $this->displayErrors ?></div>
+		<h3 class="w3-container w3-blue">Register Here!</h3>
 		<div>
 			<label for="fname">First Name</label>
-			<input type="text" id="fname" name="fname" value="<?=$this->post['fname']?>">
+			<input class="w3-input" type="text" id="fname" name="fname" value="<?=$this->post['fname']?>">
 		</div>
 		<div>
 			<label for="lname">Last Name</label>
-			<input type="text" id="lname" name="lname" value="<?=$this->post['lname']?>">
+			<input class="w3-input" type="text" id="lname" name="lname" value="<?=$this->post['lname']?>">
 		</div>
 		<div>
 			<label for="email">Email</label>
-			<input type="email" id="email" name="email" value="<?=$this->post['email']?>">
+			<input class="w3-input" type="email" id="email" name="email" value="<?=$this->post['email']?>">
 		</div>
 		<div>
 			<label for="username">Choose a Username</label>
-			<input type="text" id="username" name="username" value="<?=$this->post['username']?>">
+			<input class="w3-input" type="text" id="username" name="username" value="<?=$this->post['username']?>">
 		</div>
 		<div>
 			<label for="password">Choose a Password</label>
-			<input type="password" id="password" name="password" value="<?=$this->post['password']?>">
+			<input class="w3-input" type="password" id="password" name="password" value="<?=$this->post['password']?>">
 		</div>
 		<div>
 			<label for="confirm">Confirm Password</label>
-			<input type="password" id="confirm" name="confirm" value="<?=$this->post['confirm']?>">
+			<input class="w3-input" type="password" id="confirm" name="confirm" value="<?=$this->post['confirm']?>">
 		</div>
 		<div>
-			<input type="submit" value="Register">
+			<input class="w3-button w3-white w3-border w3-border-blue w3-round-large w3-left w3-margin" type="submit" value="Register">
 		</div>
 	</form>
 </div>

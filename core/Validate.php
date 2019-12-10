@@ -124,12 +124,11 @@
 			{
 				if(is_array($error))
 				{
-					$html .= '<li>'.$error[0].'</li>';
-					$html .= '<script>jQuery("document").ready(function(){jQuery("#'.$error[1].'").parent().closest("div").addClass("has-error");});</script>';	
+					$html .= '<li class="hi">'.$error[0].'</li>'; //going to break
 				}
 				else
 				{
-					$html .= '<li>'.$error.'</li>';
+					$html .= '<li class="hi">'.$error.'</li>';
 				}
 			}
 			$html .= '</ul>';

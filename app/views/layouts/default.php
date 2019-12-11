@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale = 1">
 	<title><?=$this->siteTitle(); ?></title>
 	<link href="<?=PROOT?>css/w3.css" rel="stylesheet">
-	<!-- <link href="<?=PROOT?>css/bootstrap.min.css" rel="stylesheet"> -->
+	<link href="<?=PROOT?>css/style.css" rel="stylesheet">
 	<?= $this->content('head'); ?>
 </head>
 <body>

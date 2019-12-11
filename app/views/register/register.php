@@ -6,27 +6,27 @@
 		<div class="w3-text-red"><?= $this->displayErrors ?></div>
 		<h3 class="w3-container w3-blue">Register Here!</h3>
 		<div>
-			<label for="fname">First Name</label>
+			<label for="fname" class="w3-text-white">First Name</label>
 			<input class="w3-input" type="text" id="fname" name="fname" value="<?=$this->post['fname']?>">
 		</div>
 		<div>
-			<label for="lname">Last Name</label>
+			<label for="lname" class="w3-text-white">Last Name</label>
 			<input class="w3-input" type="text" id="lname" name="lname" value="<?=$this->post['lname']?>">
 		</div>
 		<div>
-			<label for="email">Email</label>
+			<label for="email" class="w3-text-white">Email</label>
 			<input class="w3-input" type="email" id="email" name="email" value="<?=$this->post['email']?>">
 		</div>
 		<div>
-			<label for="username">Choose a Username</label>
+			<label for="username" class="w3-text-white">Choose a Username</label>
 			<input class="w3-input" type="text" id="username" name="username" value="<?=$this->post['username']?>">
 		</div>
 		<div>
-			<label for="password">Choose a Password</label>
+			<label for="password" class="w3-text-white">Choose a Password</label>
 			<input class="w3-input" type="password" id="password" name="password" value="<?=$this->post['password']?>">
 		</div>
 		<div>
-			<label for="confirm">Confirm Password</label>
+			<label for="confirm" class="w3-text-white">Confirm Password</label>
 			<input class="w3-input" type="password" id="confirm" name="confirm" value="<?=$this->post['confirm']?>">
 		</div>
 		<div>

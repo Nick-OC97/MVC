@@ -1,7 +1,7 @@
 <?php $this->start('head'); ?>
 <?php $this->end(); ?>
 <?php $this->start('body'); ?>
-<!-- <div class="top-container">
+<div class="top-container">
 	<video id="video">Stream not available...</video>
 	<button id="photo-button" class="w3-button w3-white w3-border w3-border-blue w3-round-large">
 	Take Photo
@@ -21,5 +21,5 @@
 <div class="bottom-container">
 	<div id="photos"></div>
 </div>
-<script src="<?=PROOT?>/js/main.js"></script> -->
+<script src="<?=PROOT?>js/main.js"></script>
 <?php $this->end(); ?>

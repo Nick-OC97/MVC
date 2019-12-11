@@ -10,5 +10,6 @@
 	"Google" : "https://www.google.com",
 	"PHP Docs" : "http://php.net/manual/en",
 	"Login" : "register/login",
-	"Logout" : "register/logout"
+	"Logout" : "register/logout",
+	"Camera" : "pics/camera"
 }

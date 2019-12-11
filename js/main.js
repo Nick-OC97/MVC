@@ -41,12 +41,29 @@ navigator.mediaDevices.getUserMedia({video: true, audio: false}
 		}
 	}, false);
 
+	//photo button event
 	photoButton.addEventListener('click', function(e) {
 		takePicture();
 		
 		e.preventDefault();
 	}, false);
 
+	//filter event
+	photoFilter.addEventListener('change', function(e) {
+		filter = e.target.value;
+		video.style.filter = filter;
+		e.preventDefault();
+	});
+
+	clearButton.addEventListener('click', function(e) {
+		//clear photos
+		photos.innerHTML = '';
+		filter = 'none';
+		video.style.filter = filter;
+		photoFilter.selectedIndex = 0;
+	});
+
+	//take picture from canvas
 	function takePicture()
 	{
 		const context = canvas.getContext('2d');
@@ -65,6 +82,9 @@ navigator.mediaDevices.getUserMedia({video: true, audio: false}
 
 			//set image to src
 			img.setAttribute('src', imgUrl);
+
+			//set image filter
+			img.style.filter = filter;
 
 			//add image to photos
 			photos.appendChild(img);

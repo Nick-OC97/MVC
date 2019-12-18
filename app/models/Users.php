@@ -47,7 +47,7 @@
 			return self::$currentLoggedInUser;
 		}
 
-		public function login($rememberMe=false)
+		public function login($rememberMe)
 		{
 			Session::set($this->_sessionName, $this->id);
 			if($rememberMe)

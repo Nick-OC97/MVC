@@ -14,7 +14,7 @@
 		<ul class="a">
 			<li class="a"><a href="<?=PROOT?>" class="cam">Camagru</a></li>
 			<li class="a"><a href="<?=PROOT?>register/login" >Log In</a></li>
-			<li class="a"><a href="<?=PROOT?>camera/camera" >Camera</a></li>
+			<li class="a"><a href="<?=PROOT?>camera" >Camera</a></li>
 			<li class="a"><a href="#about">About</a></li>  <!-- going to break -->
 		</ul>
 	</div>

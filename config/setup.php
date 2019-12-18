@@ -18,7 +18,7 @@
 
 
 	CREATE TABLE `users` (
-	`id` int(11) NOT NULL,
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`username` varchar(150) NOT NULL,
 	`email` varchar(150) NOT NULL,
 	`password` varchar(150) NOT NULL,
@@ -30,7 +30,7 @@
 
 
 	CREATE TABLE `user_sessions` (
-	`id` int(11) NOT NULL,
+	`id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	`user_id` int(11) NOT NULL,
 	`session` varchar(255) NOT NULL,
 	`user_agent` varchar(255) NOT NULL

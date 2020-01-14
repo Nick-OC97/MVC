@@ -8,6 +8,7 @@ let width = 500,
 const video = document.getElementById('video');
 const canvas = document.getElementById('canvas');
 const photos = document.getElementById('photos');
+//const posts = document.getElementById('posts');
 const photoButton = document.getElementById('photo-button');
 const clearButton = document.getElementById('clear-button');
 const photoFilter = document.getElementById('photo-filter');
@@ -44,7 +45,7 @@ navigator.mediaDevices.getUserMedia({video: true, audio: false}
 	//photo button event
 	photoButton.addEventListener('click', function(e) {
 		takePicture();
-		
+		//sendImageServer(image);
 		e.preventDefault();
 	}, false);
 
@@ -62,6 +63,18 @@ navigator.mediaDevices.getUserMedia({video: true, audio: false}
 		video.style.filter = filter;
 		photoFilter.selectedIndex = 0;
 	});
+
+	/* function sendImageServer(image)
+	{
+		var fd = new FormData(document.forms["form"]);
+		var httpr = new XMLHttpRequest();
+		httpr.open('POST', 'Camera.php', true);
+		httpr.send(fd)
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("POST", "mvc/app/controllers/Camera.php", true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.send("image=" + encodeURIComponent(image.replace("data:image/png;base64,", "")))
+	} */
 
 	//take picture from canvas
 	function takePicture()
@@ -88,6 +101,23 @@ navigator.mediaDevices.getUserMedia({video: true, audio: false}
 
 			//add image to photos
 			photos.appendChild(img);
+
+			saveImage(imgUrl, filter);
+
+		}
+
+		function saveImage(imgUrl, filter)
+		{
+			var xhttp = new XMLHttpRequest();
+			xhttp.open("POST", "", true);
+			xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			xhttp.onload = function()
+			{
+				let element = document.createElement("img");
+				element.src = "/mvc/img/"+xhttp.responseText;
+				//posts.insertBefore(element, posts.childNodes[0]);
+			}
+			xhttp.send("imgData="+imgUrl+"&filter="+filter);
 		}
 	}
 

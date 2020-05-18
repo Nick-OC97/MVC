@@ -96,8 +96,17 @@
 
 				if ($validation->passed())
 				{
-					$newUser = new Users();
-					$newUser->registerNewUser($_POST);
+					$token = bin2hex(random_bytes(16));
+					if (send_confirmation_mail($login, $email, $token) == true)
+					{
+						$newUser = new Users();
+						$newUser->registerNewUser($_POST);
+					}
+					else
+					{
+						echo "An error occured while sending the confirmation email, please try again.<br/>";
+					}
+
 					Router::redirect('register/login');
 				}
 			}

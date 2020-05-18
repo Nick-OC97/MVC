@@ -3,6 +3,7 @@
 <?php $this->end(); ?>
 <?php $this->start('body'); ?>
 <div>
+	<p>Please log In before verifying email</p>
 	<form class="w3-container w3-white" action="<?=PROOT?>register/login" method="post">
 		<div><?=$this->displayErrors ?></div>
 		<h3 class="w3-container w3-blue">Log In</h3>

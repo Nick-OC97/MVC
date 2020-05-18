@@ -15,7 +15,8 @@
 			<li class="a"><a href="<?=PROOT?>" class="cam">Camagru</a></li>
 			<li class="a"><a href="<?=PROOT?>register/login" >Log In</a></li>
 			<li class="a"><a href="<?=PROOT?>camera" >Camera</a></li>
-			<li class="a"><a href="#about">About</a></li>  <!-- going to break -->
+			<li class="a"><a href="<?=PROOT?>profile">Profile</a></li>
+			<li class="a"><a href="<?=PROOT?>register/logout" >Log out</a></li>
 		</ul>
 	</div>
 	<?= $this->content('body'); ?>

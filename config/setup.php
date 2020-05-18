@@ -24,6 +24,7 @@
 	`password` varchar(150) NOT NULL,
 	`fname` varchar(150) NOT NULL,
 	`lname` varchar(150) NOT NULL,
+	`hash` varchar(32) NOT NULL,
 	`acl` text CHARACTER SET utf8 COLLATE utf8_general_ci,
 	`deleted` tinyint(4) DEFAULT '0'
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8;

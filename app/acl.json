@@ -1,10 +1,13 @@
 {
 	"Guest" : {
-		"denied" : {},
+		"denied" : {
+			"Profile" : ["*"]
+		},
 		"Home" : ["*"],
 		"Register" : ["login", "register"],
 		"Camera" : ["*"],
-		"Restricted" : ["*"]
+		"Restricted" : ["*"],
+		"Verify" : ["*"]
 	},
 	"LoggedIn" : {
 		"denied" : {
@@ -12,6 +15,7 @@
 		},
 		"Register" : ["logout"],
 		"Camera" : ["*"],
-		"Tools" : ["*"]
+		"Tools" : ["*"],
+		"Profile" : ["*"]
 	}
 }

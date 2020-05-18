@@ -37,6 +37,11 @@
 			return $this->findFirst(['conditions'=> "username = ?", 'bind'=>[$username]]);
 		}
 
+		public function findByEmail($email)
+		{
+			return $this->findFirst(['conditions'=> "email = ?", 'bind'=>[$email]]);
+		}
+
 		public static function currentLoggedInUser()
 		{
 			if (!isset(self::$currentLoggedInUser) && Session::exists(CURRENT_USER_SESSION_NAME))
@@ -94,9 +99,31 @@
 		public function registerNewUser($params)
 		{
 			$this->assign($params);
-			$this->deleted = 0;
+			$this->deleted = 1;
 			$this->password = password_hash($this->password, PASSWORD_BCRYPT);
-			$this->save();
+			$this->hash = md5($this->hash);
+			$this->save(); //works to here
+			$to = $this->email;
+			//dnd($this->email);
+			$subject = 'Signup | Verification';
+			$message = '
+
+Thanks for signing up!
+Your account has been created, you can login with the following credentials after you have activated your account by pressing the url below.
+
+------------------------
+Username: '.$this->username.'
+Password: '.$this->password.'
+------------------------
+
+Please click this link to activate your account:
+http://localhost/mvc/verify?email='.$this->email.'&hash='.$this->hash.'
+
+'; // Our message above including the link
+
+			$headers = 'From:noreply@yourwebsite.com' . "\r\n"; // Set from headers
+			//dnd($message);
+			mail($to, $subject, $message, $headers); // Send our email
 		}
 
 		public function acls()

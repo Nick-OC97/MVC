@@ -56,8 +56,10 @@
 		public function registerAction()
 		{
 			$validation = new Validate();
-			$posted_values = ['fname'=>'', 'lname'=>'', 'username'=>'', 'email'=>'', 'password'=>'', 'confirm'=>''];
+			$posted_values = ['fname'=>'', 'lname'=>'', 'username'=>'', 'email'=>'', 'password'=>'', 'confirm'=>'', 'hash'=>''];
 			if($_POST) {
+				array_push($_POST , random_int(0,1000));
+				//dnd($_POST);
 				$posted_values = posted_values($_POST);
 				$validation->check($_POST, [
 					'fname' => [
@@ -96,17 +98,8 @@
 
 				if ($validation->passed())
 				{
-					$token = bin2hex(random_bytes(16));
-					if (send_confirmation_mail($login, $email, $token) == true)
-					{
-						$newUser = new Users();
-						$newUser->registerNewUser($_POST);
-					}
-					else
-					{
-						echo "An error occured while sending the confirmation email, please try again.<br/>";
-					}
-
+					$newUser = new Users();
+					$newUser->registerNewUser($_POST);
 					Router::redirect('register/login');
 				}
 			}

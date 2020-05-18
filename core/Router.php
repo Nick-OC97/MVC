@@ -30,7 +30,7 @@
 
 			if (method_exists($controller, $action))
 			{
-				call_user_func_array([$dispatch, $action], $queryParams) ; 
+				call_user_func_array([$dispatch, $action], $queryParams) ; //allows call function with array of parameters
 			}
 			else
 			{
@@ -72,7 +72,7 @@
 					$current_user_acls[] = $a;
 				}
 			}
-			
+
 			foreach($current_user_acls as $level)
 			{
 				if(array_key_exists($level, $acl) && array_key_exists($controller_name, $acl[$level]))

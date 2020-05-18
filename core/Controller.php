@@ -7,7 +7,7 @@
 		public function __construct($controller, $action)
 		{
 			parent::__construct();
-			$this->_controler = $controller;
+			$this->_controller = $controller;
 			$this->_action = $action;
 			$this->view = new View();
 		}

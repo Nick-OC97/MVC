@@ -97,6 +97,8 @@
 			Session::delete(CURRENT_USER_SESSION_NAME);
 			if (Cookie::exists(REMEMBER_ME_COOKIE_NAME))
 			{
+				//dnd(Cookie::exists(REMEMBER_ME_COOKIE_NAME));
+				//dnd($_COOKIE);
 				Cookie::delete(REMEMBER_ME_COOKIE_NAME);
 			}
 			self::$currentLoggedInUser = null;
